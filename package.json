@@ -1,0 +1,23 @@
+{
+  "name": "ev-icons",
+  "version": "1.0.0",
+  "description": "A CSS Playground",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrapala/ev-icons.git"
+  },
+  "author": "Juliette Rapala <juliette@julietterapala.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrapala/ev-icons/issues"
+  },
+  "homepage": "https://github.com/jrapala/ev-icons#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
