@@ -1,0 +1,50 @@
+$color-dark: #1b1b18;
+$color-light: #eaeaea;
+$color-highlight: #cbc5ea;
+$color-lowlight: #73628a;
+$color-lowlight-02: rgba(49, 61, 90, 0.5);
+
+html {
+	// background-color: $color-dark;
+	// color: $color-light;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+body {
+	font-family: 'Cabin', sans-serif;
+	font-size: 16px;
+	margin: 3em auto;
+	text-align: center;
+}

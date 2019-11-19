@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/jrapala/ev-icons#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.6"
+  },
+  "dependencies": {
+    "gsap": "^3.0.1"
   }
 }
