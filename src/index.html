@@ -24,12 +24,12 @@
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<g class="circle" fill="#EF232D" fill-rule="evenodd">
-					<circle cx="25.5" cy="25.5" r="25.5"></circle>
+					<circle cx="25" cy="25" r="25"></circle>
 				</g>
 				<g
 					id="addButton"
 					stroke="#FFF"
-					stroke-width="3"
+					stroke-width="2"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 				>
@@ -39,7 +39,6 @@
 						y1="15"
 						x2="25"
 						y2="35"
-						id="Path-27"
 					></line>
 					<line
 						id="addLineHorizontal"
@@ -47,10 +46,89 @@
 						y1="25"
 						x2="15"
 						y2="25"
-						id="Path-27"
 					></line>
 				</g>
 			</svg>
+			<!-- SAVE BUTTON -->
+			<svg
+				id="saveButton"
+				class="save button"
+				viewBox="0 0 200 60"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<g
+					class="circle"
+					fill="#EF232D"
+					fill-rule="evenodd"
+					id="saveButtonCircle"
+					class="save-circle-button"
+				>
+					<circle cx="50" cy="25" r="25"></circle>
+				</g>
+				<g
+					id="saveButtonAdd"
+					stroke="#FFF"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<line
+						id="saveButtonAddLineVertical"
+						x1="50"
+						y1="13"
+						x2="50"
+						y2="37"
+					></line>
+					<line
+						id="saveButtonAddLineHorizontal"
+						x1="62"
+						y1="25"
+						x2="38"
+						y2="25"
+					></line>
+					<g
+						id="saveButtonDisk"
+						stroke="#FFF"
+						stroke-width="2"
+						fill="none"
+					>
+						<path
+							d="M18.13,-2.48689958e-14 L24.107,5.976 L24.1071429,22.1079835 C24.1071429,23.212553 23.2117124,24.1079835 22.1071429,24.1079835 L2,24.1079835 C0.8954305,24.1079835 1.3527075e-16,23.212553 0,22.1079835 L0,2.00084067 C-1.3527075e-16,0.896271166 0.8954305,0.000840666088 2,0.000840666088 L18.13,-2.48689958e-14 Z"
+						></path>
+						<rect x="5" y="0" width="12" height="7"></rect>
+						<rect x="5" y="13" width="15" height="11"></rect>
+					</g>
+				</g>
+				<g fill="#EF232D" fill-rule="evenodd" id="saveButtonCircle02">
+					<circle cx="50" cy="25" r="5"></circle>
+				</g>
+				<g fill="#EF232D" fill-rule="evenodd" id="saveButtonCircle03">
+					<circle cx="50" cy="25" r="5"></circle>
+				</g>
+				<g
+					stroke="#FFF"
+					stroke-width="3"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					id="checkMark"
+				>
+					<line
+						id="checkMarkLine01"
+						x1="41"
+						y1="17"
+						x2="49"
+						y2="27"
+					></line>
+					<line
+						id="checkMarkLine02"
+						x1="49"
+						y1="27"
+						x2="62"
+						y2="11"
+					></line>
+				</g>
+			</svg>
+			<p class="save" id="success">Success!</p>
 		</div>
 		<script src="./index.js"></script>
 	</body>
