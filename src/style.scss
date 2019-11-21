@@ -1,4 +1,4 @@
-$color-dark: #1b1b18;
+$color-red: #ef232d;
 $color-light: #eaeaea;
 $color-highlight: #cbc5ea;
 $color-lowlight: #73628a;
@@ -59,11 +59,8 @@ body {
 }
 
 .grid {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: repeat(5, 1fr);
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
+	display: flex;
+	flex-wrap: wrap;
 	margin: 2em auto;
 	width: 80vw;
 }
@@ -123,4 +120,20 @@ body {
 
 .pointer {
 	cursor: pointer;
+}
+
+#boxSpinner {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 2rem;
+}
+
+.box {
+	background: $color-red;
+	width: 3rem;
+	height: 3rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
