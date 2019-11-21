@@ -20,7 +20,8 @@
 			<!-- ADD BUTTON -->
 			<div>
 				<svg
-					class="add button"
+					id="addButton"
+					class="button"
 					viewBox="0 0 60 60"
 					xmlns="http://www.w3.org/2000/svg"
 				>
@@ -28,26 +29,14 @@
 						<circle cx="25" cy="25" r="25"></circle>
 					</g>
 					<g
-						id="addButton"
+						id="addButtonPlus"
 						stroke="#FFF"
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
 					>
-						<line
-							id="addLineVertical"
-							x1="25"
-							y1="15"
-							x2="25"
-							y2="35"
-						></line>
-						<line
-							id="addLineHorizontal"
-							x1="35"
-							y1="25"
-							x2="15"
-							y2="25"
-						></line>
+						<line x1="25" y1="15" x2="25" y2="35"></line>
+						<line x1="35" y1="25" x2="15" y2="25"></line>
 					</g>
 				</svg>
 			</div>
@@ -55,17 +44,11 @@
 			<div>
 				<svg
 					id="saveButton"
-					class="save button"
-					viewBox="0 0 200 60"
+					class="button"
+					viewBox="0 0 100 60"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<g
-						class="circle"
-						fill="#EF232D"
-						fill-rule="evenodd"
-						id="saveButtonCircle"
-						class="save-circle-button"
-					>
+					<g fill="#EF232D" fill-rule="evenodd" id="saveButtonCircle">
 						<circle cx="50" cy="25" r="25"></circle>
 					</g>
 					<g
@@ -121,7 +104,7 @@
 						stroke-width="3"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						id="checkMark"
+						id="saveButtonCheckMark"
 					>
 						<line
 							id="checkMarkLine01"
@@ -139,11 +122,102 @@
 						></line>
 					</g>
 				</svg>
-				<div id="success">
-				<p class="save" id="successText">Success!</p>
+				<div id="saveButtonSuccess">
+					<p>Success!</p>
 				</div>
 			</div>
-		</div>
+			<!-- SAVE BUTTON 02-->
+			<div>
+				<svg
+					id="saveButtonV2"
+					class="saveV2 button"
+					viewBox="0 0 100 60"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<g
+						class="circle"
+						fill="#EF232D"
+						fill-rule="evenodd"
+						id="saveButtonCircleV2"
+						class="save-circle-button"
+					>
+						<circle cx="50" cy="25" r="25"></circle>
+					</g>
+					<g
+						id="saveButtonAddV2"
+						stroke="#FFF"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<line
+							id="saveButtonAddLineVerticalV2"
+							x1="50"
+							y1="13"
+							x2="50"
+							y2="37"
+						></line>
+						<line
+							id="saveButtonAddLineHorizontalV2"
+							x1="62"
+							y1="25"
+							x2="38"
+							y2="25"
+						></line>
+						<g
+							id="saveButtonDiskV2"
+							stroke="#FFF"
+							stroke-width="2"
+							fill="none"
+						>
+							<path
+								d="M18.13,-2.48689958e-14 L24.107,5.976 L24.1071429,22.1079835 C24.1071429,23.212553 23.2117124,24.1079835 22.1071429,24.1079835 L2,24.1079835 C0.8954305,24.1079835 1.3527075e-16,23.212553 0,22.1079835 L0,2.00084067 C-1.3527075e-16,0.896271166 0.8954305,0.000840666088 2,0.000840666088 L18.13,-2.48689958e-14 Z"
+							></path>
+							<rect x="5" y="0" width="12" height="7"></rect>
+							<rect x="5" y="13" width="15" height="11"></rect>
+						</g>
+					</g>
+					<g
+						fill="#EF232D"
+						fill-rule="evenodd"
+						id="saveButtonCircle02V2"
+					>
+						<circle cx="50" cy="25" r="5"></circle>
+					</g>
+					<g
+						fill="#EF232D"
+						fill-rule="evenodd"
+						id="saveButtonCircle03V2"
+					>
+						<circle cx="50" cy="25" r="5"></circle>
+					</g>
+					<g
+						stroke="#FFF"
+						stroke-width="3"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						id="checkMarkV2"
+					>
+						<line
+							id="checkMarkLine01V2"
+							x1="41"
+							y1="17"
+							x2="49"
+							y2="27"
+						></line>
+						<line
+							id="checkMarkLine02V2"
+							x1="49"
+							y1="27"
+							x2="62"
+							y2="11"
+						></line>
+					</g>
+				</svg>
+				<div id="successV2">
+					<p class="saveV2" id="successTextV2">Success!</p>
+				</div>
+			</div>
 		</div>
 		<script src="./index.js"></script>
 	</body>
