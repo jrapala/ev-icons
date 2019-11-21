@@ -12,81 +12,91 @@ document
 	.addEventListener('mouseenter', saveButtonEnter)
 document.getElementById('saveButton').addEventListener('click', saveButtonClick)
 document
-	.querySelector('.saveV2')
-	.addEventListener('mouseenter', saveButtonEnterV2)
+	.getElementById('saveButtonV2')
+	.addEventListener('mouseenter', saveButtonV2Enter)
 document
-	.querySelector('.saveV2')
-	.addEventListener('mouseleave', saveButtonLeaveV2)
-document.querySelector('.saveV2').addEventListener('click', saveButtonClickV2)
+	.getElementById('saveButtonV2')
+	.addEventListener('click', saveButtonV2Click)
 
-function saveButtonEnterV2() {
-	TweenMax.set('#saveButtonDiskV2', { x: 38, y: 13 })
+function saveButtonV2Enter() {
+	TweenMax.set('#saveButtonV2Disk', { x: 38, y: 13 })
 
-	TweenMax.to('#saveButtonAddLineVerticalV2', 0.3, {
+	TweenMax.to('#saveButtonV2AddLineVertical', 0.3, {
 		x: -12,
 	})
-	TweenMax.to('#saveButtonAddLineHorizontalV2', 0.3, {
+	TweenMax.to('#saveButtonV2AddLineHorizontal', 0.3, {
 		y: 12,
 	})
 	TweenMax.to(
-		'#saveButtonDiskV2',
+		'#saveButtonV2Disk',
 		0.1,
 		{
 			opacity: 100,
 		},
 		3
 	)
-	TweenMax.to('#saveButtonAddLineVerticalV2', 1, {
+	TweenMax.to('#saveButtonV2AddLineVertical', 1, {
 		opacity: 0,
 	})
-	TweenMax.to('#saveButtonAddLineHorizontalV2', 1, {
+	TweenMax.to('#saveButtonV2AddLineHorizontal', 1, {
 		opacity: 0,
 	})
 
-	var path = document.querySelector('#saveButtonDiskV2')
+	var path = document.getElementById('saveButtonV2Disk')
 	new Vivus(path, { type: 'oneByOne', duration: 40 })
 	document.getElementById('saveButtonV2').classList.add('pointer')
 }
 
-function saveButtonClickV2() {
-	TweenMax.to('#saveButtonCircleV2', 0.5, {
-		scale: 0.2,
-		transformOrigin: '50% 50%',
-	})
-	TweenMax.to('#saveButtonDiskV2', 0.5, {
+function saveButtonV2Click() {
+	const tl = new TimelineMax()
+	TweenMax.set(['#saveButtonV2CheckMark', '#saveButtonV2Success'], {
 		scale: 0,
 		transformOrigin: '50% 50%',
 	})
-	const tl = new TimelineMax()
-
-	tl.to(['#saveButtonCircle02V2', '#saveButtonCircle03V2'], 0.1, {
-		opacity: 100,
+	tl.to('#saveButtonV2Circle', 0.5, {
+		scale: 0.2,
+		transformOrigin: '50% 50%',
 	})
-	tl.to('#saveButtonCircle02V2', 0.25, { x: -20 })
-	tl.to('#saveButtonCircle03V2', 0.25, { x: 20 })
-	tl.staggerTo(
-		[
-			'#saveButtonCircle02V2',
-			'#saveButtonCircleV2',
-			'#saveButtonCircle03V2',
-		],
-		0.25,
-		{ y: -12, yoyo: true, repeat: 3, delay: 0.2 },
-		0.1
-	)
-	tl.to(['#saveButtonCircle02V2', '#saveButtonCircle03V2'], 0.1, {
-		x: 0,
-		opacity: 0,
-	})
-	tl.to('#saveButtonCircleV2', 0.25, {
-		scale: 1,
-	})
-	tl.to(['#successV2', '#checkMarkV2'], 1.25, {
-		opacity: 100,
-	})
+		.to(
+			'#saveButtonV2Disk',
+			0.5,
+			{
+				scale: 0,
+				transformOrigin: '50% 50%',
+			},
+			0
+		)
+		.to(['#saveButtonV2Circle02', '#saveButtonV2Circle03'], 0.1, {
+			opacity: 100,
+		})
+		.to('#saveButtonV2Circle02', 0.25, { x: -20 })
+		.to('#saveButtonV2Circle03', 0.25, { x: 20 })
+		.staggerTo(
+			[
+				'#saveButtonV2Circle02',
+				'#saveButtonV2Circle',
+				'#saveButtonV2Circle03',
+			],
+			0.25,
+			{ y: -12, yoyo: true, repeat: 3, delay: 0.2 },
+			0.1
+		)
+		.to(['#saveButtonV2Circle02', '#saveButtonV2Circle03'], 0.1, {
+			x: 0,
+			opacity: 0,
+		})
+		.to('#saveButtonV2Circle', 0.25, {
+			scale: 1,
+		})
+		.to('#saveButtonV2CheckMark', 0.15, {
+			opacity: 100,
+			scale: 1,
+			delay: 0.05,
+		})
+		.to('#saveButtonV2Success', 0.25, { scale: 1, opacity: 100 })
 	document
-		.querySelector('.saveV2')
-		.removeEventListener('click', saveButtonClick)
+		.getElementById('saveButtonV2')
+		.removeEventListener('click', saveButtonV2Click)
 }
 
 function saveButtonEnter() {
