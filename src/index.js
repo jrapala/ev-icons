@@ -10,12 +10,14 @@ document
 document
 	.getElementById('saveButton')
 	.addEventListener('mouseenter', saveButtonEnter)
-document.getElementById('saveButton').addEventListener('click', saveButtonClick)
+document
+	.getElementById('saveButtonWrapper')
+	.addEventListener('click', saveButtonClick)
 document
 	.getElementById('saveButtonV2')
 	.addEventListener('mouseenter', saveButtonV2Enter)
 document
-	.getElementById('saveButtonV2')
+	.getElementById('saveButtonV2Wrapper')
 	.addEventListener('click', saveButtonV2Click)
 
 function saveButtonV2Enter() {
@@ -44,7 +46,7 @@ function saveButtonV2Enter() {
 
 	var path = document.getElementById('saveButtonV2Disk')
 	new Vivus(path, { type: 'oneByOne', duration: 40 })
-	document.getElementById('saveButtonV2').classList.add('pointer')
+	document.getElementById('saveButtonV2Wrapper').classList.add('pointer')
 }
 
 function saveButtonV2Click() {
@@ -81,21 +83,29 @@ function saveButtonV2Click() {
 			{ y: -12, yoyo: true, repeat: 3, delay: 0.2 },
 			0.1
 		)
-		.to(['#saveButtonV2Circle02', '#saveButtonV2Circle03'], 0.1, {
-			x: 0,
-			opacity: 0,
-		})
+		.to(
+			[
+				'#saveButtonV2Circle',
+				'#saveButtonV2Circle02',
+				'#saveButtonV2Circle03',
+			],
+			0.25,
+			{
+				x: -20,
+			}
+		)
 		.to('#saveButtonV2Circle', 0.25, {
-			scale: 1,
+			scale: 0.5,
 		})
 		.to('#saveButtonV2CheckMark', 0.15, {
 			opacity: 100,
-			scale: 1,
+			scale: 0.75,
 			delay: 0.05,
 		})
 		.to('#saveButtonV2Success', 0.25, { scale: 1, opacity: 100 })
+
 	document
-		.getElementById('saveButtonV2')
+		.getElementById('saveButtonV2Wrapper')
 		.removeEventListener('click', saveButtonV2Click)
 }
 
@@ -125,7 +135,7 @@ function saveButtonEnter() {
 
 	var path = document.getElementById('saveButtonDisk')
 	new Vivus(path, { type: 'oneByOne', duration: 40 })
-	document.getElementById('saveButton').classList.add('pointer')
+	document.getElementById('saveButtonWrapper').classList.add('pointer')
 }
 
 function saveButtonClick() {
@@ -172,7 +182,7 @@ function saveButtonClick() {
 		})
 		.to('#saveButtonSuccess', 0.25, { scale: 1, opacity: 100 })
 	document
-		.getElementById('saveButton')
+		.getElementById('saveButtonWrapper')
 		.removeEventListener('click', saveButtonClick)
 }
 

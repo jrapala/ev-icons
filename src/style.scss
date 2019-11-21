@@ -87,20 +87,38 @@ body {
 	opacity: 0%;
 }
 
-#saveButtonSuccess,
-#saveButtonV2Success {
+#saveButtonSuccess {
 	color: white;
 	font-size: 1.25em;
 	position: relative;
-	top: -77px;
+	top: -139px;
 	left: 24px;
 	opacity: 0;
 }
 
-#saveButtonCheckMark,
+#saveButtonV2Success {
+	color: black;
+	font-size: 1.75em;
+	position: relative;
+	top: -162px;
+	left: 70px;
+	opacity: 0;
+}
+
+#saveButtonCheckMark {
+	opacity: 0;
+	width: 60px;
+	position: relative;
+	top: -130px;
+	left: 25px;
+}
+
 #saveButtonV2CheckMark {
 	opacity: 0;
-	transform: translate(-1px, 1px);
+	width: 50px;
+	position: relative;
+	top: -117px;
+	left: -25px;
 }
 
 .pointer {
