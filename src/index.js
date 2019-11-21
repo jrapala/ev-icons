@@ -33,7 +33,7 @@ function saveButtonEnter() {
 
 	var path = document.querySelector('#saveButtonDisk')
 	new Vivus(path, { type: 'oneByOne', duration: 40 })
-	document.getElementById('saveButtonWrapper').className += ' pointer'
+	document.getElementById('saveButton').classList.add('pointer')
 }
 
 function saveButtonClick() {

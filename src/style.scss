@@ -64,8 +64,8 @@ body {
 	grid-template-rows: repeat(5, 1fr);
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
-	width: 1000px;
 	margin: 2em auto;
+	width: 80vw;
 }
 
 .button {
@@ -87,7 +87,9 @@ body {
 #success {
 	color: white;
 	font-size: 1.25em;
-	transform: translate(-175px, 75px);
+	position: relative;
+	top: -77px;
+	left: -125px;
 	opacity: 0;
 }
 
