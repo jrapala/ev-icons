@@ -32,6 +32,28 @@ window.addEventListener('DOMContentLoaded', event => {
 	document
 		.getElementById('boxSpinner')
 		.addEventListener('mouseenter', boxSpinnerEnter)
+	document
+		.getElementById('bubbleSpinner')
+		.addEventListener('mouseenter', bubbleSpinnerEnter)
+
+	function bubbleSpinnerEnter() {
+		document
+			.getElementById('bubbleSpinner')
+			.removeEventListener('mouseenter', bubbleSpinnerEnter)
+
+		var tl = new TimelineMax({ repeat: 4, yoyo: true })
+		var bubbles = document.getElementsByClassName('bubble')
+		tl.staggerTo(
+			bubbles,
+			0,
+			{
+				fill: 'none',
+				// opacity: 1,
+				// transform: 0.75,
+			},
+			0.1
+		)
+	}
 
 	function mtSpinnerClick() {
 		document
@@ -82,32 +104,6 @@ window.addEventListener('DOMContentLoaded', event => {
 		)
 	}
 
-	// function mtSpinnerEnter() {
-	// 	var tl = new TimelineLite({
-	// 		onComplete: function() {
-	// 			this.restart()
-	// 		},
-	// 	})
-	// 	var bars = document.getElementsByClassName('bar')
-	// 	tl.staggerTo(
-	// 		bars,
-	// 		1.2,
-	// 		{
-	// 			scale: 0.4,
-	// 			ease: Elastic.easeInOut,
-	// 		},
-	// 		0.1
-	// 	).staggerTo(
-	// 		bars,
-	// 		1.2,
-	// 		{
-	// 			scale: 1,
-	// 			ease: Elastic.easeInOut,
-	// 		},
-	// 		0.1
-	// 	)
-	// }
-
 	function boxSpinnerEnter() {
 		document
 			.getElementById('boxSpinner')
@@ -126,17 +122,7 @@ window.addEventListener('DOMContentLoaded', event => {
 			0.1
 		)
 	}
-	function boxSpinnerLeave() {
-		var boxes = document.getElementsByClassName('box')
-		TweenMax.to(
-			boxes,
-			0.5,
-			{
-				scale: 0.1,
-			},
-			0.1
-		)
-	}
+
 	function saveButtonV3Enter() {
 		TweenMax.set('#saveButtonV3Disk', { x: 83, y: 13 })
 
