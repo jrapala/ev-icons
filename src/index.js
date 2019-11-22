@@ -9,72 +9,105 @@ window.addEventListener('DOMContentLoaded', event => {
 		.getElementById('addButton')
 		.addEventListener('mouseleave', addButtonLeave)
 	document
-		.getElementById('saveButton')
+		.getElementById('saveButtonCircle')
 		.addEventListener('mouseenter', saveButtonEnter)
 	document
 		.getElementById('saveButtonWrapper')
 		.addEventListener('click', saveButtonClick)
 	document
-		.getElementById('saveButtonV2')
+		.getElementById('saveButtonV2Circle')
 		.addEventListener('mouseenter', saveButtonV2Enter)
 	document
 		.getElementById('saveButtonV2Wrapper')
 		.addEventListener('click', saveButtonV2Click)
 	document
+		.getElementById('mtSpinner')
+		.addEventListener('click', mtSpinnerClick)
+	document
 		.getElementById('boxSpinner')
 		.addEventListener('mouseenter', boxSpinnerEnter)
-	document
-		.getElementById('mtSpinner')
-		.addEventListener('mouseenter', mtSpinnerEnter)
+
+	function mtSpinnerClick() {
+		document
+			.getElementById('mtSpinner')
+			.removeEventListener('click', mtSpinnerClick)
+
+		TweenMax.set('#mtSpinnerText', { opacity: 0 })
+		TweenMax.set('#mtSpinnerBars', { opacity: 100 })
+		TweenMax.set('#mtSpinnerCheckMark', {
+			scale: 0,
+		})
+
+		var tl = new TimelineMax({
+			repeat: 1,
+		})
+		var tl2 = new TimelineMax()
+		tl2.pause()
+
+		var bars = document.getElementsByClassName('bar')
+		tl.staggerTo(
+			bars,
+			0.2,
+			{
+				scale: 0.4,
+			},
+			0.1
+		)
+			.staggerTo(
+				bars,
+				0.2,
+				{
+					scale: 1,
+				},
+				0.1
+			)
+			.eventCallback('onComplete', function() {
+				tl2.play(0)
+			})
+
+		tl2.to(bars, 0.5, { scale: 0 }).to(
+			'#mtSpinnerCheckMark',
+			0.25,
+			{
+				opacity: 100,
+				scale: 1,
+			},
+			0.25
+		)
+	}
 
 	// function mtSpinnerEnter() {
-	// 	var tl = new TimelineMax({
-	// 		repeat: -1,
-	// 		yoyo: true,
+	// 	var tl = new TimelineLite({
+	// 		onComplete: function() {
+	// 			this.restart()
+	// 		},
 	// 	})
 	// 	var bars = document.getElementsByClassName('bar')
 	// 	tl.staggerTo(
 	// 		bars,
-	// 		0.1,
+	// 		1.2,
 	// 		{
 	// 			scale: 0.4,
-	// 			// yoyo: true,
-	// 			// repeat: -1,
+	// 			ease: Elastic.easeInOut,
+	// 		},
+	// 		0.1
+	// 	).staggerTo(
+	// 		bars,
+	// 		1.2,
+	// 		{
+	// 			scale: 1,
+	// 			ease: Elastic.easeInOut,
 	// 		},
 	// 		0.1
 	// 	)
 	// }
 
-	function mtSpinnerEnter() {
-		var tl = new TimelineLite({
-			onComplete: function() {
-				this.restart()
-			},
-		})
-		var bars = document.getElementsByClassName('bar')
-		tl.staggerTo(
-			bars,
-			1.2,
-			{
-				scale: 0.4,
-				ease: Elastic.easeInOut,
-			},
-			0.1
-		).staggerTo(
-			bars,
-			1.2,
-			{
-				scale: 1,
-				ease: Elastic.easeInOut,
-			},
-			0.1
-		)
-	}
-
 	function boxSpinnerEnter() {
-		var tl = new TimelineMax({
-			repeat: -1,
-		})
+		document
+			.getElementById('boxSpinner')
+			.removeEventListener('mouseenter', boxSpinnerEnter)
+
+		var tl = new TimelineMax()
 		var boxes = document.getElementsByClassName('box')
 		tl.staggerTo(
 			boxes,
@@ -82,7 +115,18 @@ window.addEventListener('DOMContentLoaded', event => {
 			{
 				scale: 0.1,
 				yoyo: true,
-				repeat: -1,
+				repeat: 3,
+			},
+			0.1
+		)
+	}
+	function boxSpinnerLeave() {
+		var boxes = document.getElementsByClassName('box')
+		TweenMax.to(
+			boxes,
+			0.5,
+			{
+				scale: 0.1,
 			},
 			0.1
 		)
