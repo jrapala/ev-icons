@@ -1,5 +1,5 @@
 $color-red: #ef232d;
-$color-light: #eaeaea;
+$color-gray: #abaeaf;
 $color-highlight: #cbc5ea;
 $color-lowlight: #73628a;
 $color-lowlight-02: rgba(49, 61, 90, 0.5);
@@ -35,16 +35,11 @@ ul {
 	list-style: none;
 }
 
-img {
-	max-width: 100%;
-	height: auto;
-}
-
 body {
 	font-family: 'Cabin', sans-serif;
 	font-size: 16px;
 	margin: 1em auto;
-	text-align: center;
+	// text-align: center;
 }
 
 .header {
@@ -58,11 +53,15 @@ body {
 	}
 }
 
-.grid {
+.container {
+	height: 150px;
+	width: 500px;
+}
+
+.wrapper {
 	display: flex;
-	flex-wrap: wrap;
-	margin: 2em auto;
-	width: 80vw;
+	flex-direction: column;
+	align-items: center;
 }
 
 .button {
@@ -84,12 +83,20 @@ body {
 	opacity: 0%;
 }
 
+#saveButtonCheckMark {
+	opacity: 0;
+	width: 60px;
+	position: relative;
+	top: -130px;
+	left: 208px;
+}
+
 #saveButtonSuccess {
 	color: white;
 	font-size: 1.25em;
 	position: relative;
 	top: -139px;
-	left: 24px;
+	left: 200px;
 	opacity: 0;
 }
 
@@ -98,16 +105,8 @@ body {
 	font-size: 1.75em;
 	position: relative;
 	top: -162px;
-	left: 70px;
+	left: 228px;
 	opacity: 0;
-}
-
-#saveButtonCheckMark {
-	opacity: 0;
-	width: 60px;
-	position: relative;
-	top: -130px;
-	left: 25px;
 }
 
 #saveButtonV2CheckMark {
@@ -115,7 +114,7 @@ body {
 	width: 50px;
 	position: relative;
 	top: -117px;
-	left: -25px;
+	left: 163px;
 }
 
 .pointer {
@@ -123,11 +122,16 @@ body {
 }
 
 #boxSpinner {
+}
+
+.flex {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	margin: 2rem;
+}
+
+.absolute {
+	position: absolute;
 }
 
 .box {
@@ -136,4 +140,32 @@ body {
 	height: 3rem;
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
+}
+
+// #mtSpinner {
+// 	font-size: 10px;
+// 	height: 80px;
+// 	margin: 0 auto;
+// 	text-align: center;
+// 	width: 150px;
+// }
+
+.bar {
+	background: #fff;
+	display: inline-block;
+	height: 80%;
+	margin: 0 auto;
+	width: 10px;
+}
+
+.button-rectangle {
+	background: $color-red;
+	border-radius: 4px;
+	// display: flex;
+	font-size: 10px;
+	height: 80px;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	width: 150px;
 }

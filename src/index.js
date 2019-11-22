@@ -1,4 +1,4 @@
-import { TweenMax, Elastic, TimelineMax, Back } from 'gsap'
+import { TweenMax, Elastic, TimelineLite, TimelineMax, Back } from 'gsap'
 import Vivus from 'vivus'
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -23,14 +23,61 @@ window.addEventListener('DOMContentLoaded', event => {
 	document
 		.getElementById('boxSpinner')
 		.addEventListener('mouseenter', boxSpinnerEnter)
+	document
+		.getElementById('mtSpinner')
+		.addEventListener('mouseenter', mtSpinnerEnter)
+
+	// function mtSpinnerEnter() {
+	// 	var tl = new TimelineMax({
+	// 		repeat: -1,
+	// 		yoyo: true,
+	// 	})
+	// 	var bars = document.getElementsByClassName('bar')
+	// 	tl.staggerTo(
+	// 		bars,
+	// 		0.1,
+	// 		{
+	// 			scale: 0.4,
+	// 			// yoyo: true,
+	// 			// repeat: -1,
+	// 		},
+	// 		0.1
+	// 	)
+	// }
+
+	function mtSpinnerEnter() {
+		var tl = new TimelineLite({
+			onComplete: function() {
+				this.restart()
+			},
+		})
+		var bars = document.getElementsByClassName('bar')
+		tl.staggerTo(
+			bars,
+			1.2,
+			{
+				scale: 0.4,
+				ease: Elastic.easeInOut,
+			},
+			0.1
+		).staggerTo(
+			bars,
+			1.2,
+			{
+				scale: 1,
+				ease: Elastic.easeInOut,
+			},
+			0.1
+		)
+	}
 
 	function boxSpinnerEnter() {
 		var tl = new TimelineMax({
 			repeat: -1,
 		})
-		var box = document.getElementsByClassName('box')
+		var boxes = document.getElementsByClassName('box')
 		tl.staggerTo(
-			box,
+			boxes,
 			0.5,
 			{
 				scale: 0.1,
@@ -42,7 +89,7 @@ window.addEventListener('DOMContentLoaded', event => {
 	}
 
 	function saveButtonV2Enter() {
-		TweenMax.set('#saveButtonV2Disk', { x: 38, y: 13 })
+		TweenMax.set('#saveButtonV2Disk', { x: 83, y: 13 })
 
 		TweenMax.to('#saveButtonV2AddLineVertical', 0.3, {
 			x: -12,
@@ -131,7 +178,7 @@ window.addEventListener('DOMContentLoaded', event => {
 	}
 
 	function saveButtonEnter() {
-		TweenMax.set('#saveButtonDisk', { x: 38, y: 13 })
+		TweenMax.set('#saveButtonDisk', { x: 83, y: 13 })
 
 		TweenMax.to('#saveButtonAddLineVertical', 0.3, {
 			x: -12,
