@@ -21,6 +21,12 @@ window.addEventListener('DOMContentLoaded', event => {
 		.getElementById('saveButtonV2Wrapper')
 		.addEventListener('click', saveButtonV2Click)
 	document
+		.getElementById('saveButtonV3Circle')
+		.addEventListener('mouseenter', saveButtonV3Enter)
+	document
+		.getElementById('saveButtonV3Wrapper')
+		.addEventListener('click', saveButtonV3Click)
+	document
 		.getElementById('mtSpinner')
 		.addEventListener('click', mtSpinnerClick)
 	document
@@ -130,6 +136,80 @@ window.addEventListener('DOMContentLoaded', event => {
 			},
 			0.1
 		)
+	}
+	function saveButtonV3Enter() {
+		TweenMax.set('#saveButtonV3Disk', { x: 83, y: 13 })
+
+		TweenMax.to('#saveButtonV3AddLineVertical', 0.3, {
+			x: -12,
+		})
+		TweenMax.to('#saveButtonV3AddLineHorizontal', 0.3, {
+			y: 12,
+		})
+		TweenMax.to(
+			'#saveButtonV3Disk',
+			0.1,
+			{
+				opacity: 100,
+			},
+			3
+		)
+		TweenMax.to('#saveButtonV3AddLineVertical', 1, {
+			opacity: 0,
+		})
+		TweenMax.to('#saveButtonV3AddLineHorizontal', 1, {
+			opacity: 0,
+		})
+
+		var path = document.getElementById('saveButtonV3Disk')
+		new Vivus(path, { type: 'oneByOne', duration: 40 })
+		document.getElementById('saveButtonV3Wrapper').classList.add('pointer')
+	}
+
+	function saveButtonV3Click() {
+		const tl = new TimelineMax()
+		TweenMax.set('#saveButtonV3CheckMark', {
+			scale: 0,
+			transformOrigin: '50% 50%',
+		})
+		TweenMax.set('#saveButtonV3CircleSpinner', { scale: 0, rotation: 90 })
+		tl.to(
+			'#saveButtonV3Disk',
+			0.3,
+			{
+				scale: 0,
+				transformOrigin: '50% 50%',
+			},
+			0
+		)
+			.to('#saveButtonV3CircleSpinner', 0.2, {
+				opacity: 100,
+				scale: 1,
+			})
+			.fromTo(
+				'#saveButtonV3CircleSpinner',
+				0.5,
+				{
+					rotation: 90,
+					repeat: 2,
+				},
+				{
+					rotation: 450,
+					repeat: 2,
+				}
+			)
+			.to('#saveButtonV3CircleSpinner', 0.2, {
+				scale: 0,
+			})
+			.to('#saveButtonV3CheckMark', 0.15, {
+				opacity: 100,
+				scale: 0.75,
+				delay: 0.05,
+			})
+
+		document
+			.getElementById('saveButtonV3Wrapper')
+			.removeEventListener('click', saveButtonV3Click)
 	}
 
 	function saveButtonV2Enter() {
