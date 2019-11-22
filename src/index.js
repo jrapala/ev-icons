@@ -1,4 +1,4 @@
-import { TweenMax, Elastic, TimelineLite, TimelineMax, Back } from 'gsap'
+import { TweenMax, Elastic, TimelineLite, TimelineMax, Back, Split } from 'gsap'
 import Vivus from 'vivus'
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -35,6 +35,55 @@ window.addEventListener('DOMContentLoaded', event => {
 	document
 		.getElementById('bubbleSpinner')
 		.addEventListener('mouseenter', bubbleSpinnerEnter)
+	document
+		.getElementById('loadingText')
+		.addEventListener('mouseenter', loadingTextEnter)
+
+	function loadingTextEnter() {
+		document
+			.getElementById('loadingText')
+			.removeEventListener('mouseenter', loadingTextEnter)
+
+		const tl = new TimelineMax({ repeat: 2 })
+		tl.set('#loadingTextCircle01', { autoAlpha: 0.7 })
+			.to('#loadingTextCircle01', 0.5, {
+				scale: 0.2,
+				transformOrigin: '50% 50%',
+			})
+			.to('#loadingTextCircle01', 0.5, {
+				scale: 1,
+				transformOrigin: '50% 50%',
+			})
+
+		//animate second circle
+		const tl2 = new TimelineMax({ repeat: 2 })
+		tl2.set('#loadingTextCircle02', { autoAlpha: 0.7 })
+			.to('#loadingTextCircle02', 0.5, {
+				scale: 0.2,
+				x: '-=2',
+				transformOrigin: '50% 50%',
+			})
+			.to('#loadingTextCircle02', 0.5, {
+				scale: 1,
+				x: '+=2',
+				transformOrigin: '50% 50%',
+			})
+
+		const tlsplit = new TimelineMax({ repeat: 1 })
+		const letters = document.getElementsByClassName('loading-text')
+		tlsplit
+			.staggerFrom(letters, 1, { autoAlpha: 0 }, 0.07)
+			.staggerTo(letters, 0.5, { autoAlpha: 0 }, 0.05)
+			.eventCallback('onComplete', function() {
+				TweenMax.to(
+					['#loadingTextCircle01', '#loadingTextCircle02'],
+					0.25,
+					{
+						opacity: 0,
+					}
+				)
+			})
+	}
 
 	function bubbleSpinnerEnter() {
 		document
@@ -48,8 +97,6 @@ window.addEventListener('DOMContentLoaded', event => {
 			0,
 			{
 				fill: 'none',
-				// opacity: 1,
-				// transform: 0.75,
 			},
 			0.1
 		)
